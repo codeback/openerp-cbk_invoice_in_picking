@@ -35,6 +35,7 @@ class stock_picking(osv.osv):
 class stock_picking_out(osv.osv):
     
     _inherit = "stock.picking.out"
+    _order = 'id'
     _columns = {
         'invoice_id': fields.many2one('account.invoice', 'Invoice', readonly=True),
         'internal_number': fields.related('invoice_id', 'number', type='char', string='Invoice Number', readonly=True)
