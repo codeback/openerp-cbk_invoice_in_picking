@@ -27,6 +27,7 @@ from osv import fields,osv
 class stock_picking(osv.osv):
 	
     _inherit = "stock.picking"
+    _order = 'id desc'
     _columns = {
         'invoice_id': fields.many2one('account.invoice', 'Invoice', readonly=True),
         'internal_number': fields.related('invoice_id', 'number', type='char', string='Invoice Number', readonly=True)
@@ -35,7 +36,7 @@ class stock_picking(osv.osv):
 class stock_picking_out(osv.osv):
     
     _inherit = "stock.picking.out"
-    _order = 'id'
+    _order = 'id desc'
     _columns = {
         'invoice_id': fields.many2one('account.invoice', 'Invoice', readonly=True),
         'internal_number': fields.related('invoice_id', 'number', type='char', string='Invoice Number', readonly=True)
